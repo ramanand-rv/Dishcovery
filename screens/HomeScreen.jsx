@@ -8,13 +8,13 @@ const HomeScreen = () => {
   return (
     <View>
       <Header />
-      <ScrollView>
-        {/* Categories */}
-        <Categories />
+      {/* <ScrollView> */}
+      {/* Categories */}
+      <Categories />
 
-        {/* Featured */}
-        <Featured />
-      </ScrollView>
+      {/* Featured */}
+      <Featured />
+      {/* </ScrollView> */}
     </View>
   );
 };
