@@ -7,6 +7,7 @@ const imgPaths = {
   coffee: require('../assets/coffee.jpg'),
   noodles: require('../assets/noodles.jpg'),
   tart: require('../assets/tart.jpg'),
+  coffee: require('../assets/coffee.jpg'),
 };
 
 const Categories = () => {
@@ -23,6 +24,9 @@ const Categories = () => {
       <CategoryCard imgUrl={imgPaths.coffee} title="Testy 2" />
       <CategoryCard imgUrl={imgPaths.noodles} title="Testy 3" />
       <CategoryCard imgUrl={imgPaths.tart} title="Testy 4" />
+      <CategoryCard imgUrl={imgPaths.coffee} title="Testy 2" />
+      <CategoryCard imgUrl={imgPaths.watermelon} title="Testy 1 " />
+      <CategoryCard imgUrl={imgPaths.noodles} title="Testy 3" />
     </ScrollView>
   );
 };
