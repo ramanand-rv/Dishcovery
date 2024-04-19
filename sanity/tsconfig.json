@@ -13,6 +13,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.js", "**/*.jsx", "schemaTypes/restaurant.js", "schemaTypes/index.js", "schemaTypes/featured.js", "schemaTypes/dish.js", "sanity.config.js", "sanity.cli.js"],
   "exclude": ["node_modules"]
 }

@@ -7,7 +7,7 @@ export default {
       name: 'name',
       title: 'Category Name',
       type: 'string',
-      validation: (Rule:any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',

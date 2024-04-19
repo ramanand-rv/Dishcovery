@@ -7,13 +7,13 @@ export default {
       name: 'name',
       title: 'Name of the Dish',
       type: 'string',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'short_description',
       title: 'Short Description',
       type: 'string',
-      validation: (Rule: any) => Rule.max(200),
+      validation: (Rule) => Rule.max(200),
     },
     {
       name: 'price',
