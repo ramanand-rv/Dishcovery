@@ -56,28 +56,6 @@ const HomeScreen = () => {
               description={category.short_description}
             />
           ))}
-        {featuredCategories &&
-          featuredCategories.map(category => (
-            <Featured
-              key={category._id}
-              id={category._id}
-              title={category.name}
-              description={category.short_description}
-            />
-          ))}
-
-        {/* <Featured
-        {/* <Featured
-          id="1234"
-          title="Tasty discounts"
-          description="Raste ka maal saste me"
-        />
-
-        <Featured
-          id="1235"
-          title="Spicy discounts"
-          description="Raste ka maal saste me"
-        /> */}
       </ScrollView>
     </SafeAreaView>
   );

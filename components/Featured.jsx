@@ -6,7 +6,7 @@ import {client} from '../sanity';
 import 'react-native-url-polyfill/auto';
 
 const Featured = ({id, title, description}) => {
-  const [restaurant, setRestaurant] = useState();
+  const [restaurants, setRestaurants] = useState();
 
   useEffect(() => {
     client
@@ -23,13 +23,13 @@ const Featured = ({id, title, description}) => {
 }[0]`,
         {id},
       )
-      .then(data => setRestaurant(data));
+      .then(data => setRestaurants(data?.restaurants));
   }, [id]);
 
-  console.log(restaurant);
+  // console.log(restaurants);
 
   return (
-    <View>
+    <View className="">
       <View className=" mt-4 flex-row items-center justify-between mx-2">
         <Text className=" font-bold text-lg">{title}</Text>
         <ArrowRightIcon color={'#00ccbb'} />
@@ -45,42 +45,23 @@ const Featured = ({id, title, description}) => {
         }}
         className="pt-4">
         {/* Restaurant Cards */}
-        <RestaurantCard
-          id={id}
-          imgUrl="https://links.papareact.com/gn7"
-          title="Paneer"
-          rating={4.5}
-          genre="Testy 1"
-          address="Margao, GOA"
-          short_description="Great description"
-          dishes={[]}
-          long={123}
-          lat={789}
-        />
-        <RestaurantCard
-          id={id}
-          imgUrl="https://links.papareact.com/gn7"
-          title="Saurabh"
-          rating={4.8}
-          genre="Testy 2"
-          address="Margao, GOA"
-          short_description="Tasty description"
-          dishes={[]}
-          long={124}
-          lat={790}
-        />
-        <RestaurantCard
-          id={id}
-          imgUrl="https://links.papareact.com/gn7"
-          title="Rahul"
-          rating={4.2}
-          genre="Testy 3"
-          address="Margao, GOA"
-          short_description="Spicy description"
-          dishes={[]}
-          long={125}
-          lat={791}
-        />
+
+        {restaurants &&
+          restaurants.map(restaurant => (
+            <RestaurantCard
+              key={restaurant._id}
+              id={restaurant._id}
+              imgUrl={restaurant.image}
+              title={restaurant.name}
+              rating={restaurant.rating}
+              // genre={restaurant.type?.name}
+              address={restaurant.address}
+              short_description={restaurant.short_description}
+              dishes={restaurant.dishes}
+              long={restaurant.long}
+              lat={restaurant.lat}
+            />
+          ))}
       </ScrollView>
     </View>
   );
