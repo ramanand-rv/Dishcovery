@@ -1,7 +1,8 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StarIcon} from 'react-native-heroicons/solid';
+import {Image, StatusBar, Text, TouchableOpacity, View} from 'react-native';
 import {MapPinIcon} from 'react-native-heroicons/outline';
+import {StarIcon} from 'react-native-heroicons/solid';
 import {urlFor} from '../builder';
 
 const RestaurantCard = ({
@@ -16,8 +17,26 @@ const RestaurantCard = ({
   long,
   lat,
 }) => {
+  const navigation = useNavigation();
+  StatusBar.setHidden(true, 'none');
+
   return (
-    <TouchableOpacity className="bg-white mr-3 shadow w-[248px] max-h-max p-1">
+    <TouchableOpacity
+      className="bg-white mr-3 shadow w-[248px] max-h-max p-1"
+      onPress={() =>
+        navigation.navigate('RestaurantScreen', {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat,
+        })
+      }>
       <Image
         source={{uri: urlFor(imgUrl).url()}}
         className="h-36 w-auto rounded"

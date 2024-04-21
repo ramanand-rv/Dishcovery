@@ -6,14 +6,7 @@ import Featured from '../components/Featured';
 import {client} from '../sanity';
 
 const HomeScreen = () => {
-  // const navigation = useNavigation();
   const [featuredCategories, setFeaturedCategories] = useState();
-
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerShown: false,
-  //   });
-  // }, [navigation]);
 
   useEffect(() => {
     client
