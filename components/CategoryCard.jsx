@@ -1,13 +1,17 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {Text, TouchableOpacity, Image, View} from 'react-native';
 import React from 'react';
+import {urlFor} from '../builder';
 
 const CategoryCard = ({imgUrl, title}) => {
   return (
-    <TouchableOpacity className=" mr-2 relative">
-      <Image source={imgUrl} className="h-16 w-16 rounded" />
-      <Text className="absolute bottom-1 left-1 text-black font-bold bg-slate-200 rounded ">
-        {title}
-      </Text>
+    <TouchableOpacity className=" mr-2 relative ">
+      <Image
+        source={{uri: urlFor(imgUrl).url()}}
+        className="h-16 w-16 rounded"
+      />
+      <View className="absolute bottom-1 left-1 rounded backdrop-blur-xl bg-black/40  border-black border-[0.3px] border-opacity-40 ">
+        <Text className=" text-white font-bold px-1 text-[8px]">{title}</Text>
+      </View>
     </TouchableOpacity>
   );
 };

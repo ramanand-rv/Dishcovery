@@ -1,16 +1,21 @@
 import {View, Text, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CategoryCard from './CategoryCard';
 
-const imgPaths = {
-  watermelon: require('../assets/watermelon.jpg'),
-  coffee: require('../assets/coffee.jpg'),
-  noodles: require('../assets/noodles.jpg'),
-  tart: require('../assets/tart.jpg'),
-  coffee: require('../assets/coffee.jpg'),
-};
+import {client} from '../sanity';
 
 const Categories = () => {
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    client
+      .fetch(
+        `
+    *[_type == 'category'] 
+    `,
+      )
+      .then(data => setCategories(data));
+  }, []);
   return (
     <ScrollView
       horizontal
@@ -20,13 +25,14 @@ const Categories = () => {
         paddingHorizontal: 15,
         paddingTop: 10,
       }}>
-      <CategoryCard imgUrl={imgPaths.watermelon} title="Testy 1 " />
-      <CategoryCard imgUrl={imgPaths.coffee} title="Testy 2" />
-      <CategoryCard imgUrl={imgPaths.noodles} title="Testy 3" />
-      <CategoryCard imgUrl={imgPaths.tart} title="Testy 4" />
-      <CategoryCard imgUrl={imgPaths.coffee} title="Testy 2" />
-      <CategoryCard imgUrl={imgPaths.watermelon} title="Testy 1 " />
-      <CategoryCard imgUrl={imgPaths.noodles} title="Testy 3" />
+      {categories &&
+        categories.map(category => (
+          <CategoryCard
+            key={category._id}
+            imgUrl={category.image}
+            title={category.name}
+          />
+        ))}
     </ScrollView>
   );
 };
