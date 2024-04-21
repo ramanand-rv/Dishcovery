@@ -31,13 +31,13 @@ const Header = () => {
       </View>
 
       {/* Search bar */}
-      <View className="flex-row items-center space-x-2  mx-2 px-1">
-        <View className="flex-row items-center bg-gray-200 p-1 flex-1">
+      <View className="flex-row items-center space-x-2 pb-1  mx-2 px-1">
+        <View className="flex-row items-center bg-gray-200 px-1 flex-1 rounded-sm">
           <MagnifyingGlassIcon color={'#00ccbb'} size={25} />
           <TextInput
             placeholder="Search you favourite food"
             keyboardType="default"
-            className="flex-1"
+            className="flex-1 "
           />
         </View>
         <AdjustmentsVerticalIcon color={'#00ccbb'} />
