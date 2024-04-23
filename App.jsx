@@ -24,7 +24,7 @@ function App() {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <Provider store={store}>
+      <Provider store={store} stabilityCheck="never">
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} />
