@@ -14,6 +14,8 @@ import React from 'react';
 import HomeScreen from './screens/HomeScreen';
 import RestaurantScreen from './screens/RestaurantScreen';
 import {StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
+import {store} from './store';
 
 function App() {
   const Stack = createStackNavigator();
@@ -22,13 +24,15 @@ function App() {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} />
-        {/* <SafeAreaView>
+      <Provider store={store}>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="RestaurantScreen" component={RestaurantScreen} />
+          {/* <SafeAreaView>
           <HomeScreen />
         </SafeAreaView> */}
-      </Stack.Navigator>
+        </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }
