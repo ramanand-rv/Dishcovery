@@ -58,8 +58,14 @@ const DishCard = ({id, name, description, price, image}) => {
         {isPressed && (
           <View className="bg-white absolute bottom-1 right-3 rounded-xl px-1">
             <View className="flex-row items-center space-x-2 ">
-              <TouchableOpacity className="" onPress={removeItemFromBasket}>
-                <MinusCircleIcon size={40} color={'#00ccbb'} />
+              <TouchableOpacity
+                className=""
+                onPress={removeItemFromBasket}
+                disabled={!items.length}>
+                <MinusCircleIcon
+                  size={40}
+                  color={items.length > 0 ? '#00ccbb' : 'gray'}
+                />
               </TouchableOpacity>
               <Text className="text-gray-500 font-bold">{items.length}</Text>
               <TouchableOpacity onPress={addItemToBasket}>
