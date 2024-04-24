@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useRoute} from '@react-navigation/native';
 import {urlFor} from '../builder';
 import {
@@ -19,8 +19,12 @@ import {useNavigation} from '@react-navigation/native';
 import {StarIcon} from 'react-native-heroicons/solid';
 import DishCard from '../components/DishCard';
 import BasketIcon from '../components/BasketIcon';
+import {useDispatch} from 'react-redux';
+import {setRestaurant} from '../features/restaurantSlice';
 
 const RestaurantScreen = () => {
+  const dispatch = useDispatch();
+
   const {
     params: {
       id,
@@ -35,6 +39,24 @@ const RestaurantScreen = () => {
       lat,
     },
   } = useRoute();
+
+  useEffect(() => {
+    dispatch(
+      setRestaurant(
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+        long,
+        lat,
+      ),
+    );
+  }, []);
+
   StatusBar.setHidden(true, 'none');
   const navigation = useNavigation();
   return (
