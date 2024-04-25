@@ -42,7 +42,7 @@ const RestaurantScreen = () => {
 
   useEffect(() => {
     dispatch(
-      setRestaurant(
+      setRestaurant({
         id,
         imgUrl,
         title,
@@ -53,9 +53,9 @@ const RestaurantScreen = () => {
         dishes,
         long,
         lat,
-      ),
+      }),
     );
-  }, []);
+  });
 
   StatusBar.setHidden(true, 'none');
   const navigation = useNavigation();
