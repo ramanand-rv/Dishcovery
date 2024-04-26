@@ -11,7 +11,11 @@ import React, {useMemo, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectRestaurant} from '../features/restaurantSlice';
-import {removeFromBasket, selectBasketItems} from '../features/basketSlice';
+import {
+  removeFromBasket,
+  selectBasketItems,
+  selectBasketTotal,
+} from '../features/basketSlice';
 import {XCircleIcon} from 'react-native-heroicons/solid';
 import {urlFor} from '../builder';
 
@@ -19,8 +23,11 @@ const BasketScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
+  const total = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
+  const deliveryCharge = 150;
+  const discount = 15;
 
   useMemo(() => {
     const groupedItems = items.reduce((results, item) => {
@@ -87,6 +94,38 @@ const BasketScreen = () => {
             </View>
           ))}
         </ScrollView>
+
+        <View className="p-2 bg-white mt-3 space-y-3">
+          <View className="flex-row justify-between items-center space-x-2 px-3">
+            <Text className="text-gray-600 ">Subtotal</Text>
+            <Text className="text-gray-600 ">₹ {total.toFixed(2)}</Text>
+          </View>
+
+          <View className="flex-row justify-between items-center space-x-2 px-3">
+            <Text className="text-gray-600 ">Delivery Fee</Text>
+            <Text className="text-gray-600 ">
+              ₹ {deliveryCharge.toFixed(2)}
+            </Text>
+          </View>
+
+          <View className="flex-row justify-between items-center space-x-2 px-3">
+            <Text className="text-gray-600 ">Discount </Text>
+            <Text className="text-gray-600 ">{discount}% </Text>
+          </View>
+
+          <View className="flex-row justify-between items-center space-x-2 px-3">
+            <Text className="text-gray-600 font-bold ">Order Total</Text>
+            <Text className="text-gray-600 font-bold">
+              ₹ {(total - (discount * total) / 100 + deliveryCharge).toFixed(2)}
+            </Text>
+          </View>
+
+          <TouchableOpacity className="bg-[#00ccbb] py-3 mx-3 rounded-lg ">
+            <Text className="text-white text-lg text-center font-bold">
+              Place order
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
