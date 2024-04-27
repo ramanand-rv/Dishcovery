@@ -1,25 +1,24 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {useRoute} from '@react-navigation/native';
-import {urlFor} from '../builder';
+import {
+  Image,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {
   ArrowLeftIcon,
   ChevronRightIcon,
   MapPinIcon,
   QuestionMarkCircleIcon,
 } from 'react-native-heroicons/outline';
-import {useNavigation} from '@react-navigation/native';
 import {StarIcon} from 'react-native-heroicons/solid';
-import DishCard from '../components/DishCard';
-import BasketIcon from '../components/BasketIcon';
 import {useDispatch} from 'react-redux';
+import {urlFor} from '../builder';
+import BasketIcon from '../components/BasketIcon';
+import DishCard from '../components/DishCard';
 import {setRestaurant} from '../features/restaurantSlice';
 
 const RestaurantScreen = () => {

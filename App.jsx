@@ -11,14 +11,14 @@ import {
 } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import HomeScreen from './screens/HomeScreen';
-import RestaurantScreen from './screens/RestaurantScreen';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
-import {store} from './store';
 import BasketScreen from './screens/BasketScreen';
-import PreparingOrderScreen from './screens/PreparingOrderScreen';
 import DeliveryScreen from './screens/DeliveryScreen';
+import HomeScreen from './screens/HomeScreen';
+import PreparingOrderScreen from './screens/PreparingOrderScreen';
+import RestaurantScreen from './screens/RestaurantScreen';
+import {store} from './store';
 
 function App() {
   const Stack = createStackNavigator();

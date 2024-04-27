@@ -1,12 +1,11 @@
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
-import React, {useCallback, useState} from 'react';
-import {urlFor} from '../builder';
+import React, {useState} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {MinusCircleIcon, PlusCircleIcon} from 'react-native-heroicons/solid';
 import {useDispatch, useSelector} from 'react-redux';
+import {urlFor} from '../builder';
 import {
   addToBasket,
   removeFromBasket,
-  selectBasketItems,
   selectBasketItemsById,
 } from '../features/basketSlice';
 

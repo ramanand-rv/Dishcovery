@@ -1,8 +1,8 @@
-import {ScrollView, SafeAreaView} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import Header from '../components/Header';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, ScrollView} from 'react-native';
 import Categories from '../components/Categories';
 import Featured from '../components/Featured';
+import Header from '../components/Header';
 import {client} from '../sanity';
 
 const HomeScreen = () => {

@@ -1,19 +1,12 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import React, {useEffect, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {useSelector} from 'react-redux';
-import {selectRestaurant} from '../features/restaurantSlice';
+import React, {useEffect, useRef} from 'react';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {XMarkIcon} from 'react-native-heroicons/solid';
 import * as Progress from 'react-native-progress';
-import html_script from '../html_script';
 import {WebView} from 'react-native-webview';
+import {useSelector} from 'react-redux';
+import {selectRestaurant} from '../features/restaurantSlice';
+import html_script from '../html_script';
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();

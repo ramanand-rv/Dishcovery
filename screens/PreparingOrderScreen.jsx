@@ -1,8 +1,8 @@
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
+import {SafeAreaView} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import * as Progress from 'react-native-progress';
-import {useNavigation} from '@react-navigation/native';
 
 const PreparingOrderScreen = () => {
   const navigation = useNavigation();

@@ -1,10 +1,10 @@
-import {Text, View, Image, SafeAreaView, TextInput} from 'react-native';
 import React from 'react';
+import {Image, SafeAreaView, Text, TextInput, View} from 'react-native';
 import {
-  UserIcon,
-  ChevronDownIcon,
   AdjustmentsVerticalIcon,
+  ChevronDownIcon,
   MagnifyingGlassIcon,
+  UserIcon,
 } from 'react-native-heroicons/outline';
 
 const imgPaths = {

@@ -1,9 +1,9 @@
-import {View, Text, ScrollView} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {ScrollView, Text, View} from 'react-native';
 import {ArrowRightIcon} from 'react-native-heroicons/outline';
-import RestaurantCard from './RestaurantCard';
-import {client} from '../sanity';
 import 'react-native-url-polyfill/auto';
+import {client} from '../sanity';
+import RestaurantCard from './RestaurantCard';
 
 const Featured = ({id, title, description}) => {
   const [restaurants, setRestaurants] = useState();
