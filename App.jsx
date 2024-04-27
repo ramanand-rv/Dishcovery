@@ -17,6 +17,8 @@ import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './store';
 import BasketScreen from './screens/BasketScreen';
+import PreparingOrderScreen from './screens/PreparingOrderScreen';
+import DeliveryScreen from './screens/DeliveryScreen';
 
 function App() {
   const Stack = createStackNavigator();
@@ -34,6 +36,12 @@ function App() {
             component={BasketScreen}
             options={{presentation: 'modal'}}
           />
+          <Stack.Screen
+            name="PreparingOrderScreen"
+            component={PreparingOrderScreen}
+            options={{presentation: 'fullScreenModal'}}
+          />
+          <Stack.Screen name="DeliveryScreen" component={DeliveryScreen} />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
