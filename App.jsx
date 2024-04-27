@@ -41,7 +41,11 @@ function App() {
             component={PreparingOrderScreen}
             options={{presentation: 'fullScreenModal'}}
           />
-          <Stack.Screen name="DeliveryScreen" component={DeliveryScreen} />
+          <Stack.Screen
+            name="DeliveryScreen"
+            component={DeliveryScreen}
+            options={{presentation: 'fullScreenModal'}}
+          />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
