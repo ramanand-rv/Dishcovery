@@ -1,23 +1,22 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from 'react-native';
-import React, {useMemo, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import React, {useMemo, useState} from 'react';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {XCircleIcon} from 'react-native-heroicons/solid';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectRestaurant} from '../features/restaurantSlice';
+import {urlFor} from '../builder';
 import {
   removeFromBasket,
   selectBasketItems,
   selectBasketTotal,
 } from '../features/basketSlice';
-import {XCircleIcon} from 'react-native-heroicons/solid';
-import {urlFor} from '../builder';
+import {selectRestaurant} from '../features/restaurantSlice';
 
 const BasketScreen = () => {
   const navigation = useNavigation();
